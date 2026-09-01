@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusAI - Student Academic Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-slate-800/85 backdrop-blur-md border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Cartoon Buddy Welcome -->
+            <div class="flex items-center space-x-3">
+                <div class="relative bg-gradient-to-tr from-indigo-500 to-purple-500 p-2 rounded-2xl shadow-lg flex items-center justify-center animate-bounce">
+                    <span class="text-2xl">🤖</span>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wide bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">CampusAI</span>
+                    <p class="text-xs text-slate-400 hidden sm:block">"Hey scholar! Ready to level up?" 👋</p>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-indigo-400 font-semibold hover:text-indigo-300 transition">Home</a>
+                <button onclick="openCourseCatalogModal()" class="text-slate-300 hover:text-indigo-300 transition bg-transparent border-none cursor-pointer text-base font-medium">Courses 📚</button>
+                <button onclick="openPortalModal()" class="text-slate-300 hover:text-indigo-300 transition bg-transparent border-none cursor-pointer text-base">Student Portal</button>
+                <button onclick="openCertPortalModal()" class="text-slate-300 hover:text-indigo-300 transition bg-transparent border-none cursor-pointer text-base">Certificate Portal</button>
+                <a href="#about" class="text-slate-300 hover:text-indigo-300 transition">About</a>
+            </div>
+
+            <!-- CTA Profile Button -->
+            <div>
+                <button onclick="openCourseCatalogModal()" class="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg transition transform hover:scale-105 cursor-pointer">
+                    Explore Courses
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN HERO & PLATFORM INFORMATION HOME PAGE -->
+    <main class="flex-grow flex items-center justify-center">
+        
+        <section id="home" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <span class="bg-indigo-500/10 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full border border-indigo-500/20 uppercase tracking-widest">
+                🎮 Gamified Undergraduate Learning Platform
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold mt-6 mb-4 tracking-tight">
+                Transform Your Degree Into An <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Epic Adventure</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-12">
+                CampusAI bridges the gap between theoretical academia and industry-standard tech through interactive AI animated videos, comprehensive study guides, and verifiable credentials.
+            </p>
+
+            <!-- Platform Info Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 text-left">
+                <div class="bg-slate-800/50 border border-slate-700/80 p-5 rounded-2xl">
+                    <span class="text-2xl mb-2 block">🎥</span>
+                    <h3 class="font-bold text-sm text-indigo-300 mb-1">AI Animated Videos</h3>
+                    <p class="text-xs text-slate-400">Master complex technical modules quickly with generative visual explainers.</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700/80 p-5 rounded-2xl">
+                    <span class="text-2xl mb-2 block">📖</span>
+                    <h3 class="font-bold text-sm text-indigo-300 mb-1">Curated Study Notes</h3>
+                    <p class="text-xs text-slate-400">Read in-depth academic breakdowns written for engineering undergraduates.</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700/80 p-5 rounded-2xl">
+                    <span class="text-2xl mb-2 block">🎖️</span>
+                    <h3 class="font-bold text-sm text-indigo-300 mb-1">Verified Badges</h3>
+                    <p class="text-xs text-slate-400">Earn credentials designed to highlight your tech competencies.</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-4">
+                <button onclick="openCourseCatalogModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-3.5 rounded-xl transition shadow-lg cursor-pointer text-sm">
+                    Open Courses Map 🗺️
+                </button>
+                <button onclick="openPortalModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-8 py-3.5 rounded-xl transition border border-slate-700 text-sm cursor-pointer">
+                    Student Portal 📝
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ABOUT SECTION FOOTER INFO -->
+    <div id="about" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 text-center">
+        <div class="bg-slate-800/30 border border-slate-700/50 p-6 rounded-2xl">
+            <h3 class="text-base font-bold mb-2 text-indigo-400">About CampusAI</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Designed specifically for undergraduate students to make learning modern engineering principles engaging, visual, and rewarding.</p>
+        </div>
+    </div>
+
+    <!-- COURSE CATALOG & LEVEL MAP MODAL -->
+    <div id="courseCatalogModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md hidden z-50 flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-slate-800 border border-slate-700 rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
+            <div class="flex items-center justify-between mb-6 border-b border-slate-700 pb-4">
+                <div>
+                    <span class="text-xs text-indigo-400 font-bold uppercase tracking-wider">🗺️ Interactive Skill Tree</span>
+                    <h2 class="text-2xl font-extrabold text-white">Select a Course Stream</h2>
+                </div>
+                <button onclick="closeCourseCatalogModal()" class="text-slate-400 hover:text-white text-xl font-bold cursor-pointer">✕</button>
+            </div>
+
+            <!-- Course Selection Tabs -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <button onclick="selectCourseStream('genai')" id="tab-genai" class="p-4 rounded-2xl border text-left transition cursor-pointer bg-indigo-600/20 border-indigo-500 text-white font-bold">
+                    <span class="text-xl mb-1 block">✨</span>
+                    Generative AI & LLMs
+                    <p class="text-xs text-slate-300 font-normal mt-1">Prompt architecture, RAG pipelines & fine-tuning</p>
+                </button>
+                <button onclick="selectCourseStream('ml')" id="tab-ml" class="p-4 rounded-2xl border text-left transition cursor-pointer bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-500">
+                    <span class="text-xl mb-1 block">⚡</span>
+                    Machine Learning
+                    <p class="text-xs text-slate-400 font-normal mt-1">Supervised learning, regression & scikit-learn</p>
+                </button>
+                <button onclick="selectCourseStream('coding')" id="tab-coding" class="p-4 rounded-2xl border text-left transition cursor-pointer bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-500">
+                    <span class="text-xl mb-1 block">💻</span>
+                    Coding Languages
+                    <p class="text-xs text-slate-400 font-normal mt-1">Advanced Python, Async patterns & Clean architecture</p>
+                </button>
+            </div>
+
+            <!-- Dynamic Course Levels & Topics View Container -->
+            <div id="courseLevelsContainer" class="space-y-4">
+                <!-- Injected via JavaScript based on selected stream -->
+            </div>
+        </div>
+    </div>
+
+    <!-- AI ANIMATED VIDEO & STUDY NOTES MODAL -->
+    <div id="videoModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-slate-800 border-2 border-indigo-500/50 rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-6">
+            <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-3">
+                <div>
+                    <span class="bg-indigo-500/20 text-indigo-400 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">AI Animated Visual Explainer & Notes</span>
+                    <h3 id="videoModalTitle" class="text-lg font-bold text-white mt-1">Course Title</h3>
+                </div>
+                <button onclick="closeVideoModal()" class="text-slate-400 hover:text-white text-xl font-bold cursor-pointer">✕</button>
+            </div>
+            
+            <!-- Video Container w/ 16:9 Aspect Ratio Simulated Placeholder -->
+            <div class="relative w-full aspect-video bg-slate-950 rounded-2xl overflow-hidden border border-slate-700 flex flex-col items-center justify-center group shadow-inner mb-6">
+                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-950/50 via-slate-900 to-purple-950/55 flex items-center justify-center">
+                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                </div>
+
+                <div class="relative z-10 text-center px-6">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
+                        <span class="text-3xl">✨</span>
+                    </div>
+                    <p id="videoConceptName" class="text-sm font-semibold text-indigo-200">Rendering AI Visual Sequence...</p>
+                    <p class="text-xs text-slate-400 mt-1">Simulated generative graphics & concept breakdown</p>
+                </div>
+
+                <div class="absolute bottom-0 inset-x-0 bg-slate-900/90 backdrop-blur border-t border-slate-800 px-4 py-2.5 flex items-center justify-between text-xs text-slate-300 z-20">
+                    <div class="flex items-center space-x-3">
+                        <button onclick="toggleVideoPlayState()" id="playPauseVideoBtn" class="text-indigo-400 hover:text-white font-bold cursor-pointer text-sm">▶️ Play</button>
+                        <span id="videoTimer" class="text-[11px] text-slate-400">02:15 / 04:30</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/30">HD AI Stream</span>
+                        <button onclick="alert('Entering fullscreen presentation view... 🖥️')" class="text-slate-400 hover:text-white cursor-pointer">⛶</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comprehensive Study Content Box -->
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-5 mb-6">
+                <h4 class="text-sm font-bold text-indigo-300 mb-2 flex items-center gap-2">
+                    <span>📖</span> Academic Study Notes & Core Concepts
+                </h4>
+                <div id="studyNotesContent" class="text-xs text-slate-300 leading-relaxed space-y-2">
+                    <!-- Injected dynamically based on selected topic -->
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-700">
+                <p>💡 Complete all modules in this level to unlock the Boss Quiz.</p>
+                <button onclick="closeVideoModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-2 rounded-xl transition cursor-pointer">Mark Complete & Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDENT PORTAL MODAL -->
+    <div id="portalModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-800 border border-slate-700 rounded-3xl max-w-lg w-full p-8 shadow-2xl relative">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-3">
+                    <span class="text-3xl">📝</span>
+                    <div>
+                        <h2 class="text-xl font-bold">Student Portal Registration</h2>
+                        <p class="text-xs text-slate-400">Enter your info to track academic profile & XP.</p>
+                    </div>
+                </div>
+                <button onclick="closePortalModal()" class="text-slate-400 hover:text-white text-xl font-bold cursor-pointer">✕</button>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Full Name</label>
+                    <input type="text" id="fullName" required placeholder="Alex Turner" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Email Address</label>
+                    <input type="email" id="email" required placeholder="alex@university.edu" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Academic Year</label>
+                        <select id="academicYear" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition text-sm">
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Major / Stream</label>
+                        <input type="text" id="major" required placeholder="Computer Science" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition text-sm">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-3 rounded-xl shadow-lg transition text-sm cursor-pointer mt-2">
+                    Initialize Character Profile 🚀
+                </button>
+            </form>
+
+            <div id="successMessage" class="hidden mt-4 p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-center rounded-xl text-xs font-medium">
+                Profile created successfully! Welcome aboard, Player One! 🎉
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATE PORTAL MODAL -->
+    <div id="certPortalModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-800 border-2 border-indigo-500/50 rounded-3xl max-w-lg w-full p-8 shadow-2xl relative text-center">
+            <button onclick="closeCertPortalModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold cursor-pointer">✕</button>
+            <span class="text-4xl mb-2 block">🎖️</span>
+            <h2 class="text-2xl font-bold mb-1 text-indigo-400">Certificate Portal</h2>
+            <p class="text-xs text-slate-400 mb-6">Manage, verify, and view all your earned quest credentials.</p>
+            
+            <div id="certPortalContent" class="space-y-3 mb-6 text-left">
+                <div class="bg-slate-900 border border-slate-700/80 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-indigo-400 font-semibold">Credential ID: CAI-9482-2026</p>
+                        <h4 class="text-sm font-bold text-white">Generative AI & LLMs</h4>
+                    </div>
+                    <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full font-medium">Verified</span>
+                </div>
+            </div>
+
+            <button onclick="alert('Downloading all earned certificates... 📄')" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold py-3 rounded-xl transition text-sm cursor-pointer">
+                Download All Verified Badges
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+        <p>&copy; 2026 CampusAI. All rights reserved. Built for undergraduate innovators.</p>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPT -->
+    <script>
+        // Course data with comprehensive academic content & study notes for each topic
+        const courseStreams = {
+            genai: {
+                title: "Generative AI & LLMs",
+                levels: [
+                    { 
+                        level: "Level 1", 
+                        title: "Prompt Engineering Foundations", 
+                        topics: [
+                            {
+                                name: "Zero-shot & Few-shot Prompting",
+                                notes: "Zero-shot prompting involves asking an LLM to perform a task without providing prior examples, relying entirely on pre-trained weights. Few-shot prompting provides 2-5 input-output demonstrations within the context window, significantly improving output accuracy for structured tasks through in-context learning."
+                            },
+                            {
+                                name: "System vs User Prompts",
+                                notes: "System prompts act as foundational instructions that define the model's persona, guardrails, and behavioral boundaries for the entire session. User prompts contain the immediate query, task, or data input submitted by the end user during the active turn."
+                            },
+                            {
+                                name: "Chain-of-Thought Reasoning",
+                                notes: "Chain-of-Thought (CoT) prompting prompts the model to generate intermediate reasoning steps before arriving at a final answer. This drastically enhances performance on complex multi-step arithmetic, logic, and coding problems by breaking down computation."
+                            }
+                        ] 
+                    },
+                    { 
+                        level: "Level 2", 
+                        title: "Retrieval-Augmented Generation (RAG)", 
+                        topics: [
+                            {
+                                name: "Vector Embeddings & Cosine Similarity",
+                                notes: "Embeddings convert text strings into high-dimensional numerical vectors capturing semantic meaning. Cosine similarity measures the angle between two vectors in vector space, allowing retrieval engines to surface documents most relevant to a user's query."
+                            },
+                            {
+                                name: "Chunking Strategies & Document Parsers",
+                                notes: "Raw documents must be split into smaller semantic chunks (e.g., 500 tokens with 50 token overlaps) before embedding. Effective parsers handle tables, markdown, and PDFs to preserve context boundaries during vector indexing."
+                            },
+                            {
+                                name: "LangChain & Vector DB Integration",
+                                notes: "Frameworks like LangChain orchestrate data pipelines connecting document loaders, text splitters, embedding models, and vector stores (e.g., Pinecone, Chroma) to query private knowledge bases seamlessly."
+                            }
+                        ] 
+                    },
+                    { 
+                        level: "Boss Level", 
+                        title: "Fine-Tuning & Deployment", 
+                        topics: [
+                            {
+                                name: "LoRA & QLoRA Parameter Efficient Tuning",
+                                notes: "Low-Rank Adaptation (LoRA) freezes original model weights and trains small decomposition matrices, reducing GPU memory overhead by up to 80%. QLoRA adds 4-bit quantization to enable fine-tuning large models on consumer hardware."
+                            },
+                            {
+                                name: "Model Evaluation Benchmarks",
+                                notes: "Evaluating LLMs requires standardized benchmarks like MMLU (multitask knowledge), GSM8K (math reasoning), and HumanEval (coding), alongside LLM-as-a-judge frameworks for subjective quality alignment."
+                            },
+                            {
+                                name: "Production API Rate Limiting",
+                                notes: "Production deployments require robust token-bucket rate limiting, retry backoff algorithms, and semantic caching layers to manage API concurrency and minimize inference latency and costs."
+                            }
+                        ] 
+                    }
+                ]
+            },
+            ml: {
+                title: "Machine Learning Foundations",
+                levels: [
+                    { 
+                        level: "Level 1", 
+                        title: "Data Pipeline & Exploratory Analysis", 
+                        topics: [
+                            {
+                                name: "Pandas & NumPy Data Cleaning",
+                                notes: "NumPy provides high-performance vectorised array operations, while Pandas offers DataFrame structures for manipulating tabular data, filtering rows, handling missing attributes, and merging relational datasets."
+                            },
+                            {
+                                name: "Handling Missing Values & Outliers",
+                                notes: "Missing data is resolved via imputation (mean, median, KNN) or removal. Outliers are identified using Z-scores or Interquartile Range (IQR) thresholds and managed via clipping or robust scaling methods."
+                            },
+                            {
+                                name: "Data Normalization & Scaling",
+                                notes: "Min-Max scaling bounds numerical features between 0 and 1, whereas Standard Scaling centers data around zero with a standard deviation of 1. Both are critical for distance-based algorithms like SVMs and KNN."
+                            }
+                        ] 
+                    },
+                    { 
+                        level: "Level 2", 
+                        title: "Supervised Learning Algorithms", 
+                        topics: [
+                            {
+                                name: "Linear & Logistic Regression Models",
+                                notes: "Linear regression fits a continuous target variable by minimizing residual sum of squares. Logistic regression applies the sigmoid function to model binary classification probabilities bounded between 0 and 1."
+                            },
+                            {
+                                name: "Decision Trees & Entropy",
+                                notes: "Decision trees recursively partition feature space by evaluating information gain, Gini impurity, or entropy reduction, creating hierarchical rule structures that are intuitive to interpret."
+                            },
+                            {
+                                name: "Random Forests & Gradient Boosting",
+                                notes: "Random Forests combine bagged decision trees with random feature subsets to reduce variance. Gradient Boosting builds sequential trees where each new estimator corrects residual errors of prior models."
+                            }
+                        ] 
+                    },
+                    { 
+                        level: "Boss Level", 
+                        title: "Model Validation & Metrics", 
+                        topics: [
+                            {
+                                name: "Precision, Recall, and F1 Score",
+                                notes: "Precision measures exactness (True Positives / Predicted Positives), Recall measures completeness (True Positives / Actual Positives), and the F1 Score computes their harmonic mean to balance trade-offs."
+                            },
+                            {
+                                name: "K-Fold Cross Validation",
+                                notes: "K-Fold splits training data into $K$ subsets, iteratively training on $K-1$ folds and validating on the remaining fold to ensure robust generalization performance across unseen test sets."
+                            },
+                            {
+                                name: "Overfitting vs Underfitting Curves",
+                                notes: "Underfitting occurs when models have high bias and poor training performance. Overfitting happens when models have high variance, memorizing training noise while failing validation benchmarks."
+                            }
+                        ] 
+                    }
+                ]
+            },
+            coding: {
+                title: "Advanced Coding Languages & Architecture",
+                levels: [
+                    { 
+                        level: "Level 1", 
+                        title: "Python Language Mastery", 
+                        topics: [
+                            {
+                                name: "Decorators & Generator Expressions",
+                                notes: "Decorators wrap functions to modify behavior dynamically (e.g., logging, memoization). Generators use `yield` to stream data lazily, drastically reducing memory usage when processing large datasets."
+                            },
+                            {
+                                name: "Context Managers & Dunder Methods",
+                                notes: "Context managers (`with` statements) automate resource setup and teardown via `__enter__` and `__exit__`. Dunder methods (e.g., `__init__`, `__str__`) enable custom operator overloading and class behavior."
+                            },
+                            {
+                                name: "Concurrency with AsyncIO",
+                                notes: "AsyncIO uses an event loop and coroutines (`async`/`await`) to handle I/O bound network requests concurrently without spawning heavy multi-threaded operating system threads."
+                            }
+                        ] 
+                    },
+                    { 
+                        level: "Level 2", 
+                        title: "TypeScript & Modern Frontend", 
+                        topics: [
+                            {
+                                name: "Generics, Unions, and Type Guards",
+                                notes: "Generics create reusable, type-safe components. Union types allow variables to accept multiple types, and custom type guards runtime-verify shapes using type predicates."
+                            },
+                            {
+                                name: "State Management & React Hooks",
+                                notes: "React Hooks (`useState`, `useEffect`, `useMemo`) encapsulate component side effects and local state. Complex application states are managed via Context or external state libraries."
+                            },
+                            {
+                                name: "Tailwind Component Architecture",
+                                notes: "Utility-first CSS frameworks like Tailwind enable rapid, consistent UI styling directly in markup while maintaining small production bundle sizes via dead code purging."
+                            }
+                        ] 
+                    },
+                    { 
+                        level: "Boss Level", 
+                        title: "System Design & Clean Code", 
+                        topics: [
+                            {
+                                name: "SOLID Principles in Practice",
+                                notes: "SOLID principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion) guide modular, maintainable, and decoupled object-oriented architectures."
+                            },
+                            {
+                                name: "RESTful API Design & Caching",
+                                notes: "REST APIs utilize stateless HTTP methods, proper status codes, and JSON payloads. Redis caching layers reduce database load for high-frequency read endpoints."
+                            },
+                            {
+                                name: "Microservices & CI/CD Pipelines",
+                                notes: "Microservices decouple monolithic codebases into independent scalable services communicating over gRPC or message queues, automated via continuous integration pipelines."
+                            }
+                        ] 
+                    }
+                ]
+            }
+        };
+
+        let isVideoPlaying = false;
+
+        function openPortalModal() {
+            document.getElementById('portalModal').classList.remove('hidden');
+        }
+        function closePortalModal() {
+            document.getElementById('portalModal').classList.add('hidden');
+        }
+
+        function openCertPortalModal() {
+            document.getElementById('certPortalModal').classList.remove('hidden');
+        }
+        function closeCertPortalModal() {
+            document.getElementById('certPortalModal').classList.add('hidden');
+        }
+
+        function openCourseCatalogModal() {
+            document.getElementById('courseCatalogModal').classList.remove('hidden');
+            selectCourseStream('genai'); // Default to GenAI stream
+        }
+        function closeCourseCatalogModal() {
+            document.getElementById('courseCatalogModal').classList.add('hidden');
+        }
+
+        function selectCourseStream(streamKey) {
+            ['genai', 'ml', 'coding'].forEach(key => {
+                const tab = document.getElementById('tab-' + key);
+                if (key === streamKey) {
+                    tab.className = "p-4 rounded-2xl border text-left transition cursor-pointer bg-indigo-600/20 border-indigo-500 text-white font-bold";
+                } else {
+                    tab.className = "p-4 rounded-2xl border text-left transition cursor-pointer bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-500 font-medium";
+                }
+            });
+
+            const stream = courseStreams[streamKey];
+            const container = document.getElementById('courseLevelsContainer');
+            let html = `<div class="mb-4"><h3 class="text-lg font-bold text-indigo-300">${stream.title} Quest Map</h3><p class="text-xs text-slate-400">Click on any topic to watch AI video explanations and read in-depth study notes!</p></div>`;
+
+            stream.levels.forEach((lvl, idx) => {
+                html += `
+                    <div class="bg-slate-900/80 border border-slate-700/80 rounded-2xl p-5 mb-4">
+                        <div class="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                            <span class="text-xs font-bold px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20 uppercase tracking-widest">${lvl.level}</span>
+                            <h4 class="font-bold text-sm text-slate-200">${lvl.title}</h4>
+                        </div>
+                        <div class="space-y-2">
+                `;
+
+                lvl.topics.forEach(topicObj => {
+                    const escapedNotes = encodeURIComponent(topicObj.notes);
+                    html += `
+                        <div class="flex items-center justify-between bg-slate-800/60 border border-slate-700/50 p-3 rounded-xl text-xs hover:border-indigo-500/50 transition">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-emerald-400">▶</span>
+                                <span class="font-semibold text-slate-200">${topicObj.name}</span>
+                            </div>
+                            <button onclick="openVideoModal('${stream.title}', '${topicObj.name}', '${escapedNotes}')" class="bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white px-3 py-1.5 rounded-lg transition border border-indigo-500/30 font-semibold cursor-pointer flex items-center gap-1.5">
+                                <span>🎥 AI Video & Notes</span>
+                            </button>
+                        </div>
+                    `;
+                });
+
+                html += `</div></div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function openVideoModal(courseTitle, topicTitle, encodedNotes) {
+            document.getElementById('videoModalTitle').innerText = courseTitle;
+            document.getElementById('videoConceptName').innerText = "AI Animated Lesson: " + topicTitle;
+            document.getElementById('studyNotesContent').innerText = decodeURIComponent(encodedNotes);
+            document.getElementById('videoModal').classList.remove('hidden');
+            isVideoPlaying = true;
+            document.getElementById('playPauseVideoBtn').innerText = "⏸️ Pause";
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.add('hidden');
+            isVideoPlaying = false;
+        }
+
+        function toggleVideoPlayState() {
+            isVideoPlaying = !isVideoPlaying;
+            const btn = document.getElementById('playPauseVideoBtn');
+            btn.innerText = isVideoPlaying ? "⏸️ Pause" : "▶️ Play";
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('successMessage');
+            successBox.classList.remove('hidden');
+            setTimeout(() => {
+                closePortalModal();
+                successBox.classList.add('hidden');
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
